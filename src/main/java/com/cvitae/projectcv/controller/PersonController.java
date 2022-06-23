@@ -14,12 +14,12 @@ public class PersonController {
     private PersonService personService;
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Person createPerson(@RequestBody PersonDtoPart personDtoPart){
+    public PersonDtoPart createPerson(@RequestBody PersonDtoPart personDtoPart){
         return personService.createPerson(personDtoPart);
     }
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
-    public Person getPerson(){
+    public PersonDtoPart getPerson(){
         return personService.getPerson();
     }
     @ResponseStatus(HttpStatus.OK)
@@ -30,7 +30,7 @@ public class PersonController {
     }
     @ResponseStatus(HttpStatus.OK)
     @PutMapping
-    public Person updatePerson(@RequestBody PersonDtoPart personDtoPart){
+    public PersonDtoPart updatePerson(@RequestBody PersonDtoPart personDtoPart){
         return personService.updatePerson(personDtoPart);
     }
 }

@@ -1,5 +1,8 @@
 package com.cvitae.projectcv.service.serviceImpl;
 
-public interface SkillsService {
+import org.springframework.stereotype.Service;
+
+@Service
+public class SkillsService {
 
 }

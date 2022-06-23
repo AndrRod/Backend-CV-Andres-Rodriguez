@@ -26,7 +26,7 @@ public class Person {
     private String toolsName;
     private String profileDescription;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Collection<ContactAndPortfolio> contactAndPortFolio;
+    private Collection<ContactAndPortfolio> contactAndPortfolio;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Collection<Skills> skills;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

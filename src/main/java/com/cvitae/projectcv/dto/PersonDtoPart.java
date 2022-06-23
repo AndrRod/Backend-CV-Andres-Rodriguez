@@ -23,7 +23,7 @@ public class PersonDtoPart {
     private String typeProgramerName;
     private String toolsName;
     private String profileDescription;
-    private Collection<ContactAndPortfolio> contactAndPortFolio;
+    private Collection<ContactAndPortfolio> contactAndPortfolio;
     private Collection<Skills> skills;
     private Collection<Experience> experiences;
     private Collection<Education> education;
