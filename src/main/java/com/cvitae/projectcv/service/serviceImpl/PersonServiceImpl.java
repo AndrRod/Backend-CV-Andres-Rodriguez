@@ -23,7 +23,7 @@ public class PersonServiceImpl implements PersonService {
     }
     @Override
     public Person updatePerson(PersonDtoPart personDtoPart) {
-        Person person = Optional.ofNullable(personRepository.findAll().get(0)).orElseThrow(()-> new RuntimeException("The person dosent exist"));
+        Person person = getPerson();
         Optional.of(person).stream().forEach(
                 (e)-> {
                 if(personDtoPart.getFirstName() != null) e.setFirstName(personDtoPart.getFirstName());
@@ -37,10 +37,12 @@ public class PersonServiceImpl implements PersonService {
     }
     @Override
     public Person getPerson() {
-        return Optional.ofNullable(personRepository.findAll().get(0)).orElseThrow(()-> new RuntimeException("Error usuario no encontrado"));
+        if(personRepository.findAll().isEmpty()) throw new RuntimeException("Error usuario no encontrado");
+        return personRepository.findAll().get(0);
     }
     @Override
     public void deletePerson() {
+        getPerson();
         personRepository.delete(getPerson());
     }
 }
