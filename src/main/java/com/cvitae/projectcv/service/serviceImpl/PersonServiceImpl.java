@@ -21,8 +21,7 @@ public class PersonServiceImpl implements PersonService {
     }
     @Override
     public PersonDtoPart updatePerson(PersonDtoPart personDtoPart) {
-        getPerson();
-        Person person = personRepository.findAll().get(0);
+        Person person = getPersonEntity();
         Optional.of(person).stream().forEach(
                 (e)-> {
                 if(personDtoPart.getFirstName() != null) e.setFirstName(personDtoPart.getFirstName());
@@ -36,12 +35,17 @@ public class PersonServiceImpl implements PersonService {
     }
     @Override
     public PersonDtoPart getPerson() {
-        if(personRepository.findAll().isEmpty()) throw new RuntimeException("Perfil no encontrado");
-        return personMapper.entityToDto(personRepository.findAll().get(0));
+        return personMapper.entityToDto(getPersonEntity());
     }
+
     @Override
-    public void deletePerson() {
-        getPerson();
-        personRepository.delete(personRepository.findAll().get(0));
+    public Person getPersonEntity() {
+        if(personRepository.findAll().isEmpty()) throw new RuntimeException("Perfil no encontrado");
+        return personRepository.findAll().get(0);
+    }
+
+    @Override
+    public void deletePerson(){
+        personRepository.delete(getPersonEntity());
     }
 }
