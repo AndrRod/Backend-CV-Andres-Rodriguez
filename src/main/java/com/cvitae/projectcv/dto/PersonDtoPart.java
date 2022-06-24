@@ -4,6 +4,8 @@ import com.cvitae.projectcv.model.ContactAndPortfolio;
 import com.cvitae.projectcv.model.Education;
 import com.cvitae.projectcv.model.Experience;
 import com.cvitae.projectcv.model.Skills;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +26,7 @@ public class PersonDtoPart {
     private String toolsName;
     private String profileDescription;
     private Collection<ContactAndPortfolio> contactAndPortfolio;
-    private Collection<Skills> skills;
+    private Collection<SkillsDtoPart> skills;
     private Collection<Experience> experiences;
     private Collection<Education> education;
 }

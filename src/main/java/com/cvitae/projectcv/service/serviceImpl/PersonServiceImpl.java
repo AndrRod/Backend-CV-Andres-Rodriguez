@@ -6,12 +6,18 @@ import com.cvitae.projectcv.model.Person;
 import com.cvitae.projectcv.repository.PersonRepository;
 import com.cvitae.projectcv.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 @Service
 public class PersonServiceImpl implements PersonService {
+    @Lazy
     @Autowired
     private PersonRepository personRepository;
+//    public PersonServiceImpl(@Lazy PersonRepository personRepository) {
+//        super();
+//        this.personRepository = personRepository;
+//    }
     @Autowired
     private PersonMapper personMapper;
     @Override

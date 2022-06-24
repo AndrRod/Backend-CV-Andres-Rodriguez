@@ -1,5 +1,7 @@
 package com.cvitae.projectcv.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +29,8 @@ public class Person {
     private String profileDescription;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Collection<ContactAndPortfolio> contactAndPortfolio;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties(value="person")
     private Collection<Skills> skills;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Collection<Experience> experiences;
