@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.CascadeType;
@@ -17,7 +18,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.util.Collection;
 
-@Getter @Setter @AllArgsConstructor
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class PersonDtoPart {
     private Long id;
     private String firstName;
@@ -27,6 +28,6 @@ public class PersonDtoPart {
     private String profileDescription;
     private Collection<ContactAndPortfolio> contactAndPortfolio;
     private Collection<SkillsDtoPart> skills;
-    private Collection<Experience> experiences;
+    private Collection<ExperienceDtoPart> experiences;
     private Collection<Education> education;
 }

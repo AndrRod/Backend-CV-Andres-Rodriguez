@@ -13,4 +13,7 @@ public class Experience {
     private Long id;
     private String title;
     private String description;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_id")
+    private Person person;
 }

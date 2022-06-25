@@ -18,6 +18,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @SQLDelete(sql="UPDATE person SET deleted = true WHERE id=?")
 @Where(clause= "deleted = false")
+@JsonIgnoreProperties(value="person")
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,9 +31,8 @@ public class Person {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Collection<ContactAndPortfolio> contactAndPortfolio;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties(value="person")
     private Collection<Skills> skills;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
     private Collection<Experience> experiences;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Collection<Education> education;

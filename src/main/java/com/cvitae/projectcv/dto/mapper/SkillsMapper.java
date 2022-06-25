@@ -14,7 +14,7 @@ public class SkillsMapper {
     @Autowired
     private PersonService personService;
 
-    public Skills dtoToEntity(SkillsDtoPart skillsPartDto){
+    public Skills dtoToCreateEntity(SkillsDtoPart skillsPartDto){
         return new Skills(null, skillsPartDto.getName(), skillsPartDto.getDescription(), personService.getPersonEntity());
     }
     public SkillsDtoPart entityToDto(Skills skills){

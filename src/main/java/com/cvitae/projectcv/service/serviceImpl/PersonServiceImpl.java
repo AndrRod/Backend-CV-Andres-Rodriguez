@@ -2,27 +2,28 @@ package com.cvitae.projectcv.service.serviceImpl;
 
 import com.cvitae.projectcv.dto.PersonDtoPart;
 import com.cvitae.projectcv.dto.mapper.PersonMapper;
+import com.cvitae.projectcv.messagesHandler.BadRequestException;
+import com.cvitae.projectcv.messagesHandler.NotFoundException;
 import com.cvitae.projectcv.model.Person;
 import com.cvitae.projectcv.repository.PersonRepository;
 import com.cvitae.projectcv.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
+
 @Service
 public class PersonServiceImpl implements PersonService {
     @Lazy
     @Autowired
     private PersonRepository personRepository;
-//    public PersonServiceImpl(@Lazy PersonRepository personRepository) {
-//        super();
-//        this.personRepository = personRepository;
-//    }
     @Autowired
     private PersonMapper personMapper;
     @Override
     public PersonDtoPart createPerson(PersonDtoPart personDtoPart) {
-        if(!personRepository.findAll().isEmpty()) throw new RuntimeException("Ya existe un perfil");
+        if(!personRepository.findAll().isEmpty()) throw new BadRequestException("Ya existe un perfil");
         return personMapper.entityToDto(personRepository.save(personMapper.dtoToEntity(personDtoPart)));
     }
     @Override
@@ -46,12 +47,13 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Person getPersonEntity() {
-        if(personRepository.findAll().isEmpty()) throw new RuntimeException("Perfil no encontrado");
-        return personRepository.findAll().get(0);
+        if(personRepository.findAll().isEmpty()) throw new NotFoundException("Perfil no encontrado");
+        return personRepository.findAll().stream().findFirst().get();
     }
 
     @Override
-    public void deletePerson(){
+    public String deletePerson(HttpServletRequest request){
         personRepository.delete(getPersonEntity());
+            return "the perfil was deleted succesful";
     }
 }

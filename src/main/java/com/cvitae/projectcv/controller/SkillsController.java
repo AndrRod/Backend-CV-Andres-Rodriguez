@@ -1,13 +1,14 @@
 package com.cvitae.projectcv.controller;
 
 import com.cvitae.projectcv.dto.SkillsDtoPart;
+import com.cvitae.projectcv.messagesHandler.MessageGeneral;
 import com.cvitae.projectcv.service.SkillsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
-import java.util.List;
 
 @RestController
 @RequestMapping("/skill")
@@ -36,7 +37,7 @@ public class SkillsController {
     }
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public String deleteSkillById(@PathVariable Long id){
-        return skillsService.deleteSkillById(id);
+    public MessageGeneral deleteSkillById(@PathVariable Long id, HttpServletRequest request){
+        return skillsService.deleteSkillById(id, request);
     }
 }
