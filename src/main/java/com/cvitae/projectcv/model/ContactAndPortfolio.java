@@ -1,5 +1,6 @@
 package com.cvitae.projectcv.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,4 +15,8 @@ public class ContactAndPortfolio {
     private String logoUrl;
     private String contactName;
     private String contactUrl;
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "person")
+    private Person person;
 }

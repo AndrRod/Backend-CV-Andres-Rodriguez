@@ -26,8 +26,8 @@ public class PersonDtoPart {
     private String typeProgramerName;
     private String toolsName;
     private String profileDescription;
-    private Collection<ContactAndPortfolio> contactAndPortfolio;
+    private Collection<ContactAndPorfolioDtoPart> contactAndPortfolio;
     private Collection<SkillsDtoPart> skills;
     private Collection<ExperienceDtoPart> experiences;
-    private Collection<Education> education;
+    private Collection<EducationDtoPart> education;
 }

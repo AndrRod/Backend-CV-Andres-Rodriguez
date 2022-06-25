@@ -9,7 +9,6 @@ import com.cvitae.projectcv.repository.ExperienceRepository;
 import com.cvitae.projectcv.service.ExperienceService;
 import com.cvitae.projectcv.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;

@@ -21,6 +21,6 @@ public class SkillsMapper {
         return new SkillsDtoPart(skills.getId(), skills.getName(), skills.getDescription());
     }
     public Collection<SkillsDtoPart> listEntityToDto(Collection<Skills> skillsList){
-        return skillsList.stream().map(e-> entityToDto(e)).collect(Collectors.toList());
+        return skillsList.stream().map(this::entityToDto).collect(Collectors.toList());
     }
 }

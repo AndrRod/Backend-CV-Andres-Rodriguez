@@ -21,6 +21,6 @@ public class ExperienceMapper {
         return new ExperienceDtoPart(experience.getId(), experience.getTitle(), experience.getDescription());
     }
     public List<ExperienceDtoPart> listEntityToDto(List<Experience> experienceList){
-        return experienceList.stream().map(e-> entityToDto(e)).collect(Collectors.toList());
+        return experienceList.stream().map(this::entityToDto).collect(Collectors.toList());
     }
 }
