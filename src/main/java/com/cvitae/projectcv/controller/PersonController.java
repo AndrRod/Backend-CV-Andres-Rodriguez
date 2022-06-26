@@ -1,8 +1,6 @@
 package com.cvitae.projectcv.controller;
 
 import com.cvitae.projectcv.dto.PersonDtoPart;
-import com.cvitae.projectcv.messagesHandler.MessageGeneral;
-import com.cvitae.projectcv.model.Person;
 import com.cvitae.projectcv.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
+
+@CrossOrigin(origins = "http://127.0.0.1:3000"
+        , methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}
+        ,allowCredentials = "true")
 @RestController
 @RequestMapping("/person")
 public class PersonController {

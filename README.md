@@ -4,4 +4,8 @@
 
 ### Objetivo
 
-Proyecto API REST - El objeto es crear el backed de una página web que simula ser mi CV (curriculum), con la posibildiad de hacer un crud, a su vez esta api sera consumida a traves de un Front end Desarrollado con Html, css, javascipt y React. 
+Proyecto API REST - El objeto es crear el backed de una página web que simula ser mi CV (curriculum), con la posibildiad de hacer un crud, a su vez esta api sera consumida a traves de un Front end Desarrollado con Html, css, javascipt y React.
+
+### FONT END VISTA PREVIA.
+
+![](cvAndresRodriguez.png)

@@ -23,17 +23,22 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String imageProfileUrl;
     private String firstName;
     private String lastName;
     private String typeProgramerName;
     private String toolsName;
     private String profileDescription;
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
     private Collection<ContactAndPortfolio> contactAndPortfolio;
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
     private Collection<Skills> skills;
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
     private Collection<Experience> experiences;
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
     private Collection<Education> education;
     private Boolean deleted = Boolean.FALSE;

@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 
+@CrossOrigin(origins = "http://127.0.0.1:3000"
+        , methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}
+        ,allowCredentials = "true")
 @RestController
 @RequestMapping("/skill")
 public class SkillsController {

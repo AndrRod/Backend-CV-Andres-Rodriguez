@@ -21,6 +21,7 @@ import java.util.Collection;
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class PersonDtoPart {
     private Long id;
+    private String imageProfileUrl;
     private String firstName;
     private String lastName;
     private String typeProgramerName;

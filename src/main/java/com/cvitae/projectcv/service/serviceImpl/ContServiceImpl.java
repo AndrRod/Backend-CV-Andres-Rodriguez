@@ -30,8 +30,8 @@ public class ContServiceImpl implements ContService {
         ContactAndPortfolio contactAndPortfolio = findEntityById(id);
         Optional.of(contactAndPortfolio).stream().forEach((c)->{
             if(contactAndPorfolioDtoPart.getLogoUrl() != null) c.setLogoUrl(contactAndPorfolioDtoPart.getLogoUrl());
-            if(contactAndPorfolioDtoPart.getContactName()!= null) c.setContactName(contactAndPortfolio.getContactName());
-            if(contactAndPorfolioDtoPart.getContactUrl()!= null) c.setContactUrl(contactAndPortfolio.getContactUrl());
+            if(contactAndPorfolioDtoPart.getContactName()!= null) c.setContactName(contactAndPorfolioDtoPart.getContactName());
+            if(contactAndPorfolioDtoPart.getContactUrl()!= null) c.setContactUrl(contactAndPorfolioDtoPart.getContactUrl());
         });
         return contactAndPortMapper.entityToDto(contactAndPortfolioRepository.save(contactAndPortfolio));
     }
