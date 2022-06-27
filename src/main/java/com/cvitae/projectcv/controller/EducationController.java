@@ -29,12 +29,12 @@ public class EducationController {
     public EducationDtoPart updateEntity(@PathVariable Long id, @RequestBody EducationDtoPart educationDtoPart){
         return educationService.updateEntity(id, educationDtoPart);
     }
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public EducationDtoPart findById(@PathVariable Long id){
         return educationService.findById(id);
     }
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping
     public List<EducationDtoPart> listEntity(){
         return educationService.listDtoEducations();

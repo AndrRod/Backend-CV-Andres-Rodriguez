@@ -37,10 +37,10 @@ public class PersonMapper {
         Optional.of(personDtoPart).stream().forEach((person)->{
             person.setId(pers.getId());
             person.setImageProfileUrl(pers.getImageProfileUrl());
-            person.setFirstName(pers.getFirstName());
-            person.setLastName(pers.getLastName());
-            person.setTypeProgramerName(pers.getTypeProgramerName());
-            person.setToolsName(pers.getToolsName());
+            person.setFirstName(pers.getFirstName().toUpperCase());
+            person.setLastName(pers.getLastName().toUpperCase());
+            person.setTypeProgramerName(pers.getTypeProgramerName().toUpperCase());
+            person.setToolsName(pers.getToolsName().toUpperCase());
             person.setProfileDescription(pers.getProfileDescription());
             if(pers.getContactAndPortfolio()!= null) person.setContactAndPortfolio(pers.getContactAndPortfolio().stream().map(e-> contactAndPortMapper.entityToDto(e)).collect(Collectors.toList()));
             if(pers.getSkills() != null) person.setSkills(pers.getSkills().stream().map(e-> skillsMapper.entityToDto(e)).collect(Collectors.toList()));

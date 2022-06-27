@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+@CrossOrigin(origins = "http://127.0.0.1:3000"
+        , methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}
+        ,allowCredentials = "true")
 @RestController
 @RequestMapping("/auth")
 public class PersonAuthController {
@@ -25,17 +27,17 @@ public class PersonAuthController {
         return personAuthService.registerUser(personDtoCreate, request);
     }
     @PostMapping("/login")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     public UserTokenResponseDto loginUser(@RequestBody PersonDtoCreate user, HttpServletRequest request){
         return personAuthService.userLogin(user.getEmail(), user.getPassword(), request);
     }
     @GetMapping("/logoutsuccess")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     public MessageGeneral logout (HttpServletRequest request){
         return new MessageGeneral("user was logout", request.getRequestURI());
     }
     @PostMapping("/refresh")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     public void refreshToken(@RequestBody UserTokenResponseDto form, HttpServletRequest request, HttpServletResponse response) throws IOException {
         personAuthService.refreshToken(form, request, response);
     }
