@@ -23,7 +23,7 @@ public class PersonController {
         return personService.createPerson(personDtoPart);
     }
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping
+    @GetMapping("/get")
     public PersonDtoPart getPerson(){
         return personService.getPerson();
     }
