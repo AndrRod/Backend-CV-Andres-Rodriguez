@@ -16,9 +16,12 @@ Proyecto API REST - El objeto es crear el backed de una página web que simula s
 - 👉 Utilización de DTOs (creación manual).
 - 👉 Soft delete (borrado logico) para en el caso de que se borre el cv sin querer queden almacenados de igual manera
 
-### FRONT END VIDEO DEMOSTRATIVO.
+# Dirección URL del frontend en producción
+https://cv-andres-rodriguez.netlify.app/
 
-https://youtu.be/Dri-6JdQHak
+# Video demostrativo
+
+https://youtu.be/KPgIV6O8IZc
 
 ### FONT END VISTA PREVIA.
 

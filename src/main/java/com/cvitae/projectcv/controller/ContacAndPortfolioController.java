@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-@CrossOrigin(origins = "http://127.0.0.1:3000"
+@CrossOrigin(origins = {"http://127.0.0.1:3000", "https://cv-andres-rodriguez.netlify.app/"}
         , methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}
         ,allowCredentials = "true")
 @RestController
