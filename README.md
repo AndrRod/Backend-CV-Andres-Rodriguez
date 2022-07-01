@@ -19,6 +19,9 @@ Proyecto API REST - El objeto es crear el backed de una página web que simula s
 # Dirección URL del frontend en producción
 https://cv-andres-rodriguez.netlify.app/
 
+# # Dirección URL del backend en producción
+https://cv-andres.herokuapp.com
+
 # Video demostrativo
 
 https://youtu.be/KPgIV6O8IZc
